@@ -9,7 +9,7 @@ class Device(BaseModel):
     price_tier: Literal["budget", "mid-range", "flagship"] = Field(..., description="Price tier of the device")
 
 class ExtractRequest(BaseModel):
-    input_text: str = Field(...,max_length=500, description="Input text for specification extraction")
+    text: str = Field(...,max_length=500, description="Input text for specification extraction")
 
 class ExtractResponse(BaseModel):
     brand: str = Field(..., description="Brand of the device")

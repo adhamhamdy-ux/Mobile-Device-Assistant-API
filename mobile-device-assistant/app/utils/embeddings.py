@@ -1,6 +1,6 @@
 from sentence_transformers import SentenceTransformer
 import numpy as np
-from app.data.device import DEVICES
+from app.data.devices import DEVICES
 
 model = SentenceTransformer('BAAI/bge-small-en-v1.5')
 doc = model.encode(DEVICES, normalize_embeddings=True)

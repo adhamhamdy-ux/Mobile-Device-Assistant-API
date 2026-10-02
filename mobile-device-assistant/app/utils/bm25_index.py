@@ -1,4 +1,4 @@
-import BM25Okapi
+from rank_bm25 import BM25Okapi
 from app.data.devices import DEVICES
 def tokenize(text):
     return text.lower().split()
