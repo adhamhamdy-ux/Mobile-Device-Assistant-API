@@ -1,7 +1,7 @@
 from pydantic import BaseModel,ValidationError, Field,field_validator
 from typing import Literal
 
-class device_model(BaseModel):
+class Device(BaseModel):
     brand: str = Field(..., description="Brand of the device")
     model: str = Field(..., description="Model of the device")
     specs: dict[str, str] = Field(..., description="Specifications of the device")
@@ -9,7 +9,7 @@ class device_model(BaseModel):
     price_tier: Literal["budget", "mid-range", "flagship"] = Field(..., description="Price tier of the device")
 
 class ExtractRequest(BaseModel):
-    input_text: str = Field(..., description="Input text for specification extraction")
+    input_text: str = Field(...,max_length=500, description="Input text for specification extraction")
 
 class ExtractResponse(BaseModel):
     brand: str = Field(..., description="Brand of the device")
